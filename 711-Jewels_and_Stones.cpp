@@ -7,16 +7,9 @@ public:
 
         map<char, char> table;
         
-        for (char& c : J) {
-            table.insert(pair<char, char>(c, c));
-        }
+        for (char& c : J) table[c] = '';
 
-        for (char& c: S) {
-            map<char, char>::iterator search = table.find(c);
-            if (search != table.end()) {
-                jewels_count++;
-            }
-        }
+        for (char& c: S) if (table.find(c) != table.end()) jewels_count++;
 
         return jewels_count;
     }
